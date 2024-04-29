@@ -1,10 +1,11 @@
 <template>
+  <h1>Hello i am Catalog!</h1>
   <div class='v-catalog'>
-    <h1>Hello i am Catalog!</h1>
     <vCatalogItem
     v-for='product in products'
     :key='product.article'
-    :product_data:='product'
+    :product_data='product'
+    @hi = "showArticleFromChild"
     />
   </div>
 </template>
@@ -82,8 +83,20 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    showArticleFromChild (data) {
+      console.log(data)
+    }
   }
 }
 </script>
 
-<style></style>
+<style>
+.v-catalog {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+</style>
