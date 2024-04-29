@@ -9,7 +9,14 @@
 <script>
 export default {
   name: 'v-catalog-item',
-  props: {},
+  props: {
+    product_data: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
+  },
   data () {
     return {}
   }
