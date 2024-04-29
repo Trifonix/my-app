@@ -1,28 +1,45 @@
 <template>
   <div class="v-cart-item">
-    <vCatalog />
-    <vCart />
+    <img class="v-cart-item__image" :src="require('../assets/images/' + cart_item_data.image)" alt="picture">
+    <div>
+      <p>{{ cart_item_data.name }}</p>
+      <p>{{ cart_item_data.price }}</p>
+      <p>{{ cart_item_data.article }}</p>
+      <p>{{ cart_item_data.about }}</p>
+    </div>
+    <div class="v-cart-quantity">
+      <p>Quantity</p>
+      <span>
+        {{ cart_item_data.quantity }}
+      </span>
+    </div>
+    <button @click="deleteFromCart">Delete</button>
   </div>
 </template>
 
 <script>
-import vCatalog from './v-catalog.vue'
-import vCart from './v-cart.vue'
 
 export default {
   name: 'v-cart-item',
-  components: {
-    vCatalog,
-    vCart
+  props: {
+    cart_item_data: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
-  props: {},
   data () {
     return {
       title: 'hello big world'
     }
   },
   computed: {},
-  methods: {},
+  methods: {
+    deleteFromCart () {
+      this.$emit('deleteFromCart')
+    }
+  },
   watch: {},
   mounted () {
     console.log('Hello i am here!')
@@ -40,5 +57,8 @@ export default {
   box-shadow: 0 0 8px 0 greenyellow;
   padding: 20px;
   margin: 20px;
+  &__image {
+    min-width: 10%;
+  }
 }
 </style>
