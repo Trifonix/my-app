@@ -1,8 +1,10 @@
 <template>
   <div class='v-catalog'>
-    <h1>Hello i am Catalog!</h1>
     <router-link :to="{name: 'cart', params: {cart_data:CART}}">
-      <div class="v-catalog__link_to_cart">cart: {{ CART.length }}</div>
+      <div class="v-catalog__link_to_cart">
+        <i class="medium material-icons">local_grocery_store</i>
+        {{ CART.length }}
+      </div>
     </router-link>
     <div class="v-catalog__list">
       <vCatalogItem

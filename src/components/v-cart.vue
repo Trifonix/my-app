@@ -1,11 +1,13 @@
 <template>
   <div class="v-cart">
     <router-link :to="{name: 'catalog'}">
-      <div class="v-catalog__link_to_cart">cart: {{ CART.length }}</div>
-      <button>Back to catalog</button>
+      <div class="v-catalog__link_to_cart">
+        <i class="medium material-icons">local_grocery_store</i>
+        {{ CART.length }}
+      </div>
+      <button class="btn">Back to catalog</button>
     </router-link>
     <p v-if="!CART.length">Empty CART</p>
-    <h2>I am Cart!</h2>
     <vCartItem
       v-for="(item, index) in CART"
       :key="item.article"
